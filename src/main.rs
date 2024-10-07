@@ -17,7 +17,7 @@ const PLUG_PATH: &str = if cfg!(target_os = "linux") {
 fn main() {
     loop {
         let lib = unsafe { Library::new(PLUG_PATH).expect("failed to load the library") };
-        let greet: Symbol::<extern "C" fn() -> CString> = unsafe {
+        let greet: Symbol::<fn() -> CString> = unsafe {
             lib.get(b"greet").expect("could not find `greet` function")
         };
 
