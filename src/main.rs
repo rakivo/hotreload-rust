@@ -1,15 +1,15 @@
 use libloading::{Symbol, Library};
 
 use std::{
-	ffi::CString,
-	thread::sleep,
-	time::Duration
+    ffi::CString,
+    thread::sleep,
+    time::Duration
 };
 
 const PLUG_PATH: &str = if cfg!(target_os = "linux") {
     "./target/debug/libplug.so"
 } else if cfg!(target_os = "windows") {
-	".\\target\\debug\\libplug.dll"
+    ".\\target\\debug\\libplug.dll"
 } else {
     "./target/debug/libplug.dylib"
 };
